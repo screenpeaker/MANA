@@ -5,6 +5,12 @@ shark.addComponent(new Transform({
 }))
 shark.addComponent(new GLTFShape("models/shark.glb"))
 
+let sharkBlue = new Entity()
+sharkBlue.addComponent(new Transform({
+  position: new Vector3(9, 4, 9)
+}))
+sharkBlue.addComponent(new GLTFShape("models/shark.glb"))
+
 // Add animations
 /* 
 NOTE: when you try to get an animation clip that hasn't been created
@@ -28,6 +34,7 @@ shark.addComponent(new OnClick(e => {
 
 // Add shark to engine
 engine.addEntity(shark)
+engine.addEntity(sharkBlue)
 
 // Add 3D model for scenery
 const seaBed = new Entity()
