@@ -249,6 +249,7 @@ engine.addEntity(entity);
 }
 
 AddGLTF("models/Tree1.gltf", new Vector3(7, 0 ,5), new Vector3(5, 0, 4), Vector3.One(), "Armature_Idle");
+AddGLTF("models/model.gltf", new Vector3(7, 0 ,4), new Vector3(5, 0, 4), Vector3.One(), "Armature_Idle");
 
 // Add BTC Logo source: https://poly.google.com/view/0Zdd-IEkVIc
 let btclogo = new Entity()
@@ -263,8 +264,8 @@ engine.addEntity(btclogo)
 
 let avocado = new Entity()
 avocado.addComponent(new GLTFShape("models/avocado.gltf"))
-avocado.addComponent(new Transform({ 
-    position: new Vector3(3, 1, 3), 
+avocado.addComponent(new Transform({
+    position: new Vector3(3, 1, 3),
     scale: new Vector3(100, 100, 100)
     }))
 engine.addEntity(avocado)
@@ -280,4 +281,3 @@ const transform_9 = new Transform({
 })
 mesh_Cat.addComponentOrReplace(transform_9)
 engine.addEntity(mesh_Cat)
-
