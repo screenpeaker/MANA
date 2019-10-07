@@ -7,7 +7,7 @@ shark.addComponent(new GLTFShape("models/shark.glb"))
 
 let sharkBlue = new Entity()
 sharkBlue.addComponent(new Transform({
-  position: new Vector3(9, 4, 9)
+  position: new Vector3(0, 4, 0)
 }))
 sharkBlue.addComponent(new GLTFShape("models/shark.glb"))
 
