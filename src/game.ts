@@ -86,7 +86,7 @@ export class GnarkWalk {
           path.array[path.origin],
           path.array[path.target],
           path.fraction
-        ) 
+        )
       } else {
         path.origin = path.target
         path.target += 1
@@ -154,7 +154,7 @@ engine.addSystem(new BattleCry())
 const camera = Camera.instance
 
 // Get distance
-/* 
+/*
 Note:
 This function really returns distance squared, as it's a lot more efficient to calculate.
 The square root operation is expensive and isn't really necessary if we compare the result to squared values.
@@ -183,7 +183,7 @@ sharkBlue.addComponent(new Transform({
 sharkBlue.addComponent(new GLTFShape("models/shark.glb"))
 
 // Add animations
-/* 
+/*
 NOTE: when you try to get an animation clip that hasn't been created
 from a GLTFShape component, the clip is created automatically.
 */
@@ -220,6 +220,36 @@ seaBed.addComponent(new Transform({
 }))
 engine.addEntity(seaBed)
 
+function AddGLTF(path: string, position: Vector3, rotation: Vector3, scale?: Vector3, clip?: string) {
+let entity = new Entity();
+
+let shape = new GLTFShape(path);
+entity.addComponent(shape);
+
+let transform = new Transform();
+transform.position = position;
+transform.rotation = Quaternion.Euler(rotation.x, rotation.y, rotation.z);
+if (scale){
+  transform.scale = scale;
+}
+else{
+  transform.scale = Vector3.One();
+}
+entity.addComponent(transform);
+
+if (clip){
+  const animator = new Animator();
+  let animation = new AnimationState(clip);
+  animator.addClip(animation);
+  entity.addComponent(animator);
+  animation.play();
+}
+
+engine.addEntity(entity);
+}
+
+AddGLTF("models/Tree1.gltf", new Vector3(7, 0 ,5), new Vector3(5, 0, 4), Vector3.One(), "Armature_Idle");
+
 // Add BTC Logo source: https://poly.google.com/view/0Zdd-IEkVIc
 let btclogo = new Entity()
 btclogo.addComponent(new GLTFShape("models/bitcoin2D_sonson.gltf"))
@@ -250,3 +280,4 @@ const transform_9 = new Transform({
 })
 mesh_Cat.addComponentOrReplace(transform_9)
 engine.addEntity(mesh_Cat)
+
