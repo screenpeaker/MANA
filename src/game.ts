@@ -30,16 +30,16 @@ export class TimeOut {
 export const paused = engine.getComponentGroup(TimeOut)
 
 // Create temple
-// const temple = new Entity()
-// temple.addComponent(new GLTFShape('models/Temple.glb'))
-// temple.addComponent(new Transform({
-//   position: new Vector3(16, 0, 16),
-//   rotation: Quaternion.Euler(0,180,0),
-//   scale: new Vector3(1.6, 1.6, 1.6)
-// }))
+const temple = new Entity()
+temple.addComponent(new GLTFShape('models/Temple.glb'))
+temple.addComponent(new Transform({
+  position: new Vector3(16, 0, 16),
+  rotation: Quaternion.Euler(0,180,0),
+  scale: new Vector3(1.6, 1.6, 1.6)
+}))
 
 // Add temple to engine
-// engine.addEntity(temple)
+engine.addEntity(temple)
 
 // Create Gnark
 let gnark = new Entity()
@@ -176,40 +176,11 @@ shark.addComponent(new Transform({
 }))
 shark.addComponent(new GLTFShape("models/shark.glb"))
 
-// // Coordinates of path to patrol
-// const point1 = new Vector3(8, 0, 8)
-// const point2 = new Vector3(8, 0, 24)
-// const point3 = new Vector3(24, 0, 24)
-// const point4 = new Vector3(24, 0, 8)
-// const path: Vector3[] = [point1, point2, point3, point4]
-
-
-// // LerpData component
-// @Component("lerpData")
-// export class LerpData {
-//   array: Vector3[] = path
-//   origin: number = 0
-//   target: number = 1
-//   fraction: number = 0
-// }
-
 let sharkBlue = new Entity()
 sharkBlue.addComponent(new Transform({
   position: new Vector3(0, 4, 0)
 }))
 sharkBlue.addComponent(new GLTFShape("models/shark.glb"))
-
-// // Create Gnark
-// let gnark = new Entity()
-// gnark.addComponent(new Transform({
-//  position: new Vector3(6, 3, 6)
-// }))
-// // Add LerpData component to Gnark
-// gnark.addComponent(new LerpData())
-// let gnarkShape = new GLTFShape('models/gnark.glb')
-
-// gnark.addComponent(gnarkShape)
-
 
 // Add animations
 /* 
@@ -244,7 +215,7 @@ engine.addEntity(sharkBlue)
 const seaBed = new Entity()
 seaBed.addComponent(new GLTFShape("models/Underwater.gltf"))
 seaBed.addComponent(new Transform({
-  position: new Vector3(8, 0, 8),
+  position: new Vector3(-8, 0, -8),
   scale: new Vector3(0.8, 0.8, 0.8)
 }))
 engine.addEntity(seaBed)
