@@ -219,3 +219,21 @@ seaBed.addComponent(new Transform({
   scale: new Vector3(0.8, 0.8, 0.8)
 }))
 engine.addEntity(seaBed)
+
+// Add BTC Logo source: https://poly.google.com/view/0Zdd-IEkVIc
+let btclogo = new Entity()
+btclogo.addComponent(new GLTFShape("models/bitcoin2D_sonson.gltf"))
+btclogo.addComponent(new Transform({
+  position: new Vector3(15, 3, 15)
+  scale: new Vector3(10, 10, 10)
+}))
+engine.addEntity(btclogo)
+
+
+let avocado = new Entity()
+avocado.addComponent(new GLTFShape("models/avocado.gltf"))
+avocado.addComponent(new Transform({ 
+    position: new Vector3(3, 1, 3), 
+    scale: new Vector3(100, 100, 100)
+    }))
+engine.addEntity(avocado)
